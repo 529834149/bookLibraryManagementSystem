@@ -12,10 +12,10 @@
 本项目是一款图书馆项目 包含书籍分类、借阅、 学术交流、图书搜索、图书的录入等功能、资讯内容、用户管理、内容管理等
 
 ## 用到的扩展包
-- Composer 加速[composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/](https://learnku.com/composer/wikis/30594).
+- [composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/](https://learnku.com/composer/wikis/30594).
 
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications.
+Composer 加速
 
 ## Learning Laravel
 
