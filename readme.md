@@ -40,5 +40,7 @@ If you're not in the mood to read, [Laracasts](https://laracasts.com) contains o
 If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
 ## License
-
+https://blog.csdn.net/Dimo__/article/details/84936685
+http://www.clcn.net.cn/
+http://primo.clcn.net.cn:1701/primo_library/libweb/action/search.do?fn=search&ct=search&initialSearch=true&mode=Basic&tab=default_tab&indx=1&dum=true&srt=rank&vid=ST&frbg=&scp.scps=scope%3A%28ST%29+AND+scope%3A%28MGTS%29&vl%2823971421UI0%29=title&vl%28freeText0%29=%E4%B8%89%E5%9B%BD%E6%BC%94%E4%B9%89#
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
