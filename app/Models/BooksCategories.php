@@ -5,7 +5,7 @@ namespace App\Models;
 use Encore\Admin\Traits\AdminBuilder;
 use Encore\Admin\Traits\ModelTree;
 use Illuminate\Database\Eloquent\Model;
-
+use App\Models\BooksInformation;
 
 class BooksCategories extends Model
 {
@@ -14,8 +14,12 @@ class BooksCategories extends Model
     protected $table = 'books_categories';
     public $timestamps = true;
     protected $guarded = [];
- 	protected $title ='书籍分类';
+ 	  protected $title ='书籍分类';
     protected $primaryKey = 'id';//定义主键
+    public function infomation()
+    {
+        return $this->hasMany(BooksInformation::class);
+    }
  	// public function __construct(array $attributes = [])
   //   {
   //       parent::__construct($attributes);

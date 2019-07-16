@@ -29,7 +29,7 @@ If you're not in the mood to read, [Laracasts](https://laracasts.com) contains o
 在每次开发遇见很多不一样的问题，这里我把我出现的问题全部写到这里面了
 
 1、max key length is 1000 bytes [Laravel documentation](https://github.com/529834149/bookLibraryManagementSystem/issues/1).
-
+2、安装代码编辑器:https://www.cc430.cn/index.php/archives/529/
 ## artisan命令行
 
 

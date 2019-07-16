@@ -25,7 +25,7 @@ class BooksInformationController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new BooksInformation);
-         $grid->filter(function($filter){
+        $grid->filter(function($filter){
             // 去掉默认的id过滤器
             $filter->disableIdFilter();
             // 在这里添加字段过滤器
@@ -33,21 +33,49 @@ class BooksInformationController extends AdminController
             $filter->like('book_title', '书籍名称');
             $filter->like('book_author', '书籍作者');
             $filter->like('press', '书籍出版社');
+            $filter->like('categories_id', '分类名称');
+
         });
         $grid->column('id', __('Id'));
+      
+          $grid->column('picture', __('书籍首图'))->display(function($picture){
+            $path = '/uploads/'.$picture;
+            return '<img width="25" src="'.$path.'">';
+        });
         $grid->column('book_number', __('书籍编号'));
         $grid->column('book_title', __('书籍名称'));
-        $grid->column('book_author', __('书籍作者'));
-        $grid->column('categories_id', __('所属分类'));
-        $grid->column('price', __('书籍原价'));
+       // $grid->column('book_author', __('书籍作者'));
+        $grid->column('book_author', '书籍作者')->modal('作者简介', function ($model) {
+            return $model->book_author_introduction;
+            // $comments = $model->comments()->take(10)->get()->map(function ($comment) {
+            //     return $comment->only(['id', 'content', 'created_at']);
+            // });
+
+            // return new Table(['ID', '内容', '发布时间'], $comments->toArray());
+        });
+        $grid->column('categories_id', __('所属分类'))->display(function($categories_id){
+            $cate = BooksCategories::find(intval($categories_id));
+            return '<span style="color:#318DFD">'.$cate['title'].'</span>';
+        });
+        $grid->column('price', __('书籍原价'))->display(function($price){
+            return $price.'元';
+        });
         $grid->column('press', __('书籍出版社'));
-        $grid->column('abstract', __('书籍摘要-署名'));
+        //$grid->column('abstract', __('书籍摘要-署名'));
+        $grid->column('abstractInfo', '书籍摘要-署名')->modal('书籍摘要-署名', function ($model) {
+            return $model->abstract;
+        });
         $grid->column('number_of_collections', __('馆藏册数'));
         $grid->column('number_of_Books_in_library', __('在馆册数'));
         $grid->column('storage_location', __('存放位置'));
         $grid->column('borrowed_number', __('被借次数'));
 
         return $grid;
+    }
+    public function categories(Request $request)
+    {
+        $categories = $request->get('q');
+        return BooksCategories::where('title', $categories)->get(['id', DB::raw('name as text')]);
     }
 
     /**
@@ -83,11 +111,12 @@ class BooksInformationController extends AdminController
     protected function form()
     {
         $form = new Form(new BooksInformation);
-
+        $form->image('picture', __('上传书籍首图'));
         $form->text('book_number', __('书籍编号'));
         $form->text('book_title', __('书籍名称'));
         $form->text('book_author', __('书籍作者'));
-
+        
+        $form->textarea('book_author_introduction', __('作者简介'))->rows(10);
         $form->select('categories_id','父级分类')->options(BooksCategories::selectOptions());
         $form->decimal('price', __('书籍原价'));
         $form->text('press', __('书籍出版社'));
