@@ -8,6 +8,8 @@ use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
 use Encore\Admin\Widgets\Table;
+use DB;
+use Encore\Admin\Widgets\Box;
 class MemberController extends AdminController
 {
     /**
@@ -25,6 +27,7 @@ class MemberController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new Member);
+
         $grid->filter(function($filter){
             // 去掉默认的id过滤器
             $filter->disableIdFilter();
@@ -33,7 +36,12 @@ class MemberController extends AdminController
             $filter->like('realname', '姓名');
             $filter->like('identification_card', '身份证号');
         });
-       
+        $grid->header(function ($query) {
+            $gender = $query->select(DB::raw('count(gender) as count, gender'))
+                ->groupBy('gender')->get()->pluck('count', 'gender')->toArray();
+            $doughnut = view('admin.chart.gender', compact('gender'));
+            return new Box('注册男女比例', $doughnut);
+        });
         $grid->column('member_id', __('ID'));
         //$grid->column('realname', __('真实姓名'));
         //$grid->column('mobile', __('手机号'));

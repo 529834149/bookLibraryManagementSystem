@@ -11,7 +11,7 @@ return [
     | login page.
     |
     */
-    'name' => '图书管理后台',
+    'name' => '文章管理后台',
 
     /*
     |--------------------------------------------------------------------------
@@ -368,5 +368,10 @@ return [
     */
     'extensions' => [
 
+        'chartjs' => [
+        
+            // Set to `false` if you want to disable this extension
+            'enable' => true,
+        ]
     ],
 ];

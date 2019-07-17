@@ -20,7 +20,7 @@ class BooksCategoriesController extends AdminController
      *
      * @var string
      */
-    protected $title = '书籍分类';
+    protected $title = '文章分类';
     /**
      * Index interface.
      *

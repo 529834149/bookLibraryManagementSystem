@@ -6,6 +6,7 @@ use Encore\Admin\Traits\AdminBuilder;
 use Encore\Admin\Traits\ModelTree;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\BooksInformation;
+use App\Models\Article;
 
 class BooksCategories extends Model
 {
@@ -20,6 +21,11 @@ class BooksCategories extends Model
     {
         return $this->hasMany(BooksInformation::class);
     }
+    public function article()
+    {
+        return $this->hasOne(Article::class);
+    }
+    
  	// public function __construct(array $attributes = [])
   //   {
   //       parent::__construct($attributes);

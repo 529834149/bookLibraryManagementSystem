@@ -13,8 +13,10 @@
 
 ## 用到的扩展包
 - [composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/](https://learnku.com/composer/wikis/30594).
+composer require laravel-admin-ext/chartjs
 
 
+-[ 所有的镜像使用了阿里镜像composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/]
 Composer 加速
 
 
