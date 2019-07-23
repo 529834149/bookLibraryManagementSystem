@@ -37,9 +37,15 @@ If you're not in the mood to read, [Laracasts](https://laracasts.com) contains o
 
  php artisan admin:make MemberController --model=App\\Member   控制器创建
 
-## Security Vulnerabilities
+##  前台开发
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+创建辅助函数
+	1、touch app/helpers.php
+	2、 在composer.json中autoload选项下加入
+		"files": [
+            "app/helpers.php"
+        ]
+    3、composer dump-autoload  重新加载文件
 
 ## License
 https://blog.csdn.net/Dimo__/article/details/84936685
