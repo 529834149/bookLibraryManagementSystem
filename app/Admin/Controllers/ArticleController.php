@@ -148,8 +148,7 @@ class ArticleController extends AdminController
         $form->url('http_url', __('原链接'));
         $form->tags('keyword', __('关键字(关键字体系)'));
         $form->tags('tags', __('标签'));
-
-         $form->datetime('last_post_time', __('最后评论时间'))->format('YYYY-MM-DD HH:mm:ss');
+        $form->datetime('last_post_time', __('最后评论时间'))->format('YYYY-MM-DD HH:mm:ss');
         // $form->text('is_first_img', __('Is first img'))->default('n');
         $form->image('image', __('上传首图'));
 
