@@ -35,8 +35,8 @@ If you're not in the mood to read, [Laracasts](https://laracasts.com) contains o
 ## artisan命令行
 
 
- php artisan admin:make MemberController --model=App\\Member   控制器创建
-
+ 	php artisan admin:make MemberController --model=App\\Member   控制器创建
+	php artisan make:provider EasySmsServiceProvider  创建组件
 ##  前台开发
 
 创建辅助函数
@@ -47,7 +47,15 @@ If you're not in the mood to read, [Laracasts](https://laracasts.com) contains o
         ]
     3、composer dump-autoload  重新加载文件
 
-## License
+## 前台开发 遇见的问题
+	- [1、在开发的时候很多js也运用{{}}语法，导致遇laravel自身的语法重合，在这里官方文档已经有过介绍](https://laravel.com/docs/5.4/blade#displaying-data).
+## 使用的composer包
+	1、验证码类： 
+			（1）composer require "mews/captcha:~2.0"
+			（2）php artisan vendor:publish --provider='Mews\Captcha\CaptchaServiceProvider'  生成配置文件
+	2、短信发送组件：
+			（1）composer require "overtrue/easy-sms"
+			（2）https://learnku.com/courses/laravel-advance-training/5.8/sms-provider/3994
 https://blog.csdn.net/Dimo__/article/details/84936685
 http://www.clcn.net.cn/
 http://primo.clcn.net.cn:1701/primo_library/libweb/action/search.do?fn=search&ct=search&initialSearch=true&mode=Basic&tab=default_tab&indx=1&dum=true&srt=rank&vid=ST&frbg=&scp.scps=scope%3A%28ST%29+AND+scope%3A%28MGTS%29&vl%2823971421UI0%29=title&vl%28freeText0%29=%E4%B8%89%E5%9B%BD%E6%BC%94%E4%B9%89#

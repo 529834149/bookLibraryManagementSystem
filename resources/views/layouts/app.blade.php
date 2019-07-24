@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>@yield('title', '玉梅金香')</title>
+  <title>@yield('title', '博客自媒体')</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <link rel="stylesheet" type="text/css" href="/default/res/layui/css/layui.css">
@@ -13,7 +13,8 @@
   <!-- 首页导航 -->
   @include('layouts._header')
   <!-- 轮播设置 -->
-  @include('layouts._carousel')
+  <!-- @include('layouts._carousel') -->
+  @yield('carousel')
   <!-- 文章内容 -->
   @yield('content')
  
@@ -49,8 +50,8 @@
   </script>
   <!-- end-content-laytpl-->
 
+  @yield('footer')
 
-  @include('layouts._footer')
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script type="text/javascript" src="/default/res/layui/layui.js"></script>
 

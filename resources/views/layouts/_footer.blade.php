@@ -7,7 +7,7 @@
         <a href="#">常见问题</a>
       </div>
       <div class="Copyright">
-        <span>Copyright&nbsp;</span>&nbsp;&copy;<span>新闻网&nbsp;&nbsp;</span><span>赣ICP备12345678号</span>
+        <span>Copyright&nbsp;</span>&nbsp;&copy;<span>玉梅金香网&nbsp;&nbsp;</span><span>京ICP备19009802号-1</span>
       </div>
       <div class="f-icon">
         <a href="#" class="w-icon">

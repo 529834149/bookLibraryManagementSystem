@@ -44,7 +44,7 @@ html, body{height: 100%;}
 .micronews-header .search-bar{width: 280px; height: 38px; margin: 17px 0 0 20px; font-size: 14px;}
 .micronews-header .search-bar .layui-form-item{margin-bottom: 0;}
 .micronews-header .search-bar .layui-input-block{margin-left: 0; height: 38px;}
-.micronews-header .search-bar input{width: 229px; border:1px solid #e9eaec; border-right: none;  border-radius: 2px 0px 0px 2px;}
+.micronews-header .search-bar input{width: 170px; border:1px solid #e9eaec; border-right: none;  border-radius: 2px 0px 0px 2px;}
 .micronews-header .search-bar button{width: 50px; background: #6294b5; padding:0; border-radius: 0 2px 2px 0px;}
 .micronews-header .login img{height: 100%;}
 .micronews-header .login{ position: absolute; right: 0; top: 0px; } 

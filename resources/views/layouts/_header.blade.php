@@ -7,12 +7,12 @@
         </a>
       </h1>
       <p class="nav">
-        <a href="index.html" class="active">最新</a>
-        <a href="list.html">娱乐</a>
-        <a href="list.html">生活</a>
-        <a href="list.html">财经</a>
-        <a href="list.html">科技</a>
-        <a href="list.html">军事</a>
+        <a href="/" class="active">首页</a>
+        <a href="list.html">24小时</a>
+        <a href="list.html">技术闻言</a>
+        <a href="list.html">资讯</a>
+        <a href="list.html">文档在线</a>
+        <a href="list.html">关于我</a>
       </p>
       <div class="search-bar">
         <form class="layui-form" action="">
@@ -25,9 +25,10 @@
         </form>
       </div>
       <div class="login">
-         <a href="login.html">  
+        <a href="login">  
           登录
         </a>
+        
        <!-- <a href="login.html"> -->
         <!-- <img src="../res/static/images/header.png" style="width: 36px; height: 36px;"> -->
        <!-- </a> -->
