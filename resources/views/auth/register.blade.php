@@ -30,6 +30,7 @@
                             @endif
                         </div>
                     </div>
+                    
                  <!--  <div class="layui-form-item">
                     <div class="layui-input-block">
                       <input type="text" name="mobile" lay-verify="required|mobile|" id="mobile" placeholder="请输入手机号" autocomplete="off" class="layui-input">
