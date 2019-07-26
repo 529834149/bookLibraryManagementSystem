@@ -25,9 +25,19 @@
         </form>
       </div>
       <div class="login">
-        <a href="login">  
-          登录
-        </a>
+        @guest
+           <a href="{{ route('login') }}">  
+            登录
+          </a>
+        @else
+         <a href="">  
+            <form action="{{ route('logout') }}" method="POST" onsubmit="return confirm('您确定要退出吗？');">
+                  {{ csrf_field() }}
+                  <button class="btn btn-block btn-danger" type="submit" name="button">退出</button>
+                </form>
+          </a>
+        @endguest
+       
         
        <!-- <a href="login.html"> -->
         <!-- <img src="../res/static/images/header.png" style="width: 36px; height: 36px;"> -->

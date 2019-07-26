@@ -47,9 +47,20 @@ class LoginController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       
+        
     }
-
+    // protected function validator(array $data)
+    // {
+    //     return Validator::make($data, [
+    //         'mobile' => ['required'],
+    //         'password' => ['required'],
+    //         'captcha' => ['required', 'captcha'],
+    //     ], [
+    //         'captcha.required' => '验证码不能为空',
+    //         'captcha.captcha' => '请输入正确的验证码',
+    //     ]);
+    // }
     /**
      * Display the specified resource.
      *

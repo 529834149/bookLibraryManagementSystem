@@ -7,7 +7,7 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <link rel="stylesheet" type="text/css" href="/default/res/layui/css/layui.css">
   <link rel="stylesheet" type="text/css" href="/default/res/static/css/main.css">
-
+  <link href="/css/app.css" rel="stylesheet">
 </head>
 <body class="micronews {{ route_class() }}-page ">
   <!-- 首页导航 -->

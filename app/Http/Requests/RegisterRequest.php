@@ -13,7 +13,7 @@ class RegisterRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,25 @@ class RegisterRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'mobile' => [
+                'required',
+                'regex:/^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(17[0,3,5-8])|(18[0-9])|166|198|199)\d{8}$/',
+            ],
+            'password' => [
+                'required',
+                'regex:/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{8,16}$/',
+            ],
+            'q_password' => [
+                'required',
+                'regex:/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{8,16}$/',
+            ],
+            'code' => [
+                'required',
+                'regex:/^\d{4}$/',
+            ],
+            'key' => [
+                'required',
+            ],
         ];
     }
 }

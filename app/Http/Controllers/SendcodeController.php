@@ -38,22 +38,19 @@ class SendcodeController extends Controller
         $mobile = $request->mobile;
         // 生成4位随机数，左侧补0
         $code = str_pad(random_int(1, 9999), 4, 0, STR_PAD_LEFT);
-
-
-        $result = $easySms->send($mobile, [
-            'content'  =>  "【梅Blog】您的验证码是{$code}。如非本人操作，请忽略本短信"
-        ]);
         try {
             $result = $easySms->send($mobile, [
-                'content'  =>  "【梅Blog】您的验证码是{$code}。如非本人操作，请忽略本短信"
+               'content'  =>  "【梅Blog】您的验证码是{$code}。如非本人操作，请忽略本短信"
             ]);
         } catch (\Overtrue\EasySms\Exceptions\NoGatewayAvailableException $exception) {
-            response()->json(['code' => 500,'message'=>'发送失败']);
+            return response()->json(['code' => 500,'message'=>'发送失败']);
         }
         $key = 'verificationCode_'.str_random(15);
         $expiredAt = now()->addMinutes(10);
         // 缓存验证码 10分钟过期。
         \Cache::put($key, ['mobile' => $mobile, 'code' => $code], $expiredAt);
+
+        //return response()->json(['code' => 200,'message'=>'发送成功']);
         return response()->json([
             'key' => $key, 
             'expired_at' => $expiredAt->toDateTimeString(),
