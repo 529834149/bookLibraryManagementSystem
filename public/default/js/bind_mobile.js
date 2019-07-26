@@ -22,7 +22,9 @@
                     },
                     success:function(data){
                         if(data.code ==500){
-                            
+                            layer.msg('没有绑定手机号',{
+                                time:1000,
+                            })
                         }
                      }, 
                 });
