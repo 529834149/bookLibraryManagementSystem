@@ -10,6 +10,10 @@
   <link href="/css/app.css" rel="stylesheet">
 </head>
 <body class="micronews {{ route_class() }}-page ">
+    @guest
+    @else
+     <input type="hidden" name="login_uid" value="{{Auth::id() }}">
+    @endguest
   <!-- 首页导航 -->
   @include('layouts._header')
   <!-- 轮播设置 -->
@@ -49,12 +53,11 @@
   @endverbatim
   </script>
   <!-- end-content-laytpl-->
-
   @yield('footer')
 
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script type="text/javascript" src="/default/res/layui/layui.js"></script>
-
+  <script type="text/javascript" src="/default/js/bind_mobile.js"></script>
   <script>
     layui.config({
       base: '/default/res/static/js/' 

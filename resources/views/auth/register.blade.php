@@ -30,7 +30,7 @@
                             @endif
                         </div>
                     </div>
-                    
+
                  <!--  <div class="layui-form-item">
                     <div class="layui-input-block">
                       <input type="text" name="mobile" lay-verify="required|mobile|" id="mobile" placeholder="请输入手机号" autocomplete="off" class="layui-input">
@@ -58,7 +58,17 @@
                             @endif
                         </div>
                     </div>
-                 
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                          <input type="text"  name="captcha" lay-verify="required" id="imgCode" placeholder="验证码" autocomplete="off" class="layui-input form-control{{ $errors->has('captcha') ? ' is-invalid' : '' }}">
+                          <img src="{{ captcha_src('flat') }}" onclick="this.src='/captcha/flat?'+Math.random()" title="点击图片重新获取验证码">
+                           @if ($errors->has('captcha'))
+                              <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('captcha') }}</strong>
+                              </span>
+                            @endif
+                        </div>
+                      </div>
                   <!-- <div class="layui-form-item">
                     <div class="layui-input-block">
                       <input type="text"  name="captcha" lay-verify="required" id="imgCode" placeholder="验证码" autocomplete="off" class="layui-input form-control{{ $errors->has('captcha') ? ' is-invalid' : '' }}">

@@ -26,3 +26,6 @@ Route::resource('send', 'SendcodeController');
 //Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
+
+//判断当前手机号是否绑定
+Route::resource('is_bind', 'MemberController');
