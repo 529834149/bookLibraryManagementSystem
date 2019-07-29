@@ -44,7 +44,7 @@
 								layer.msg('注册成功，请登录',{
 	                            	time:1000,
 	                           	 	end:function () {
-	                            		location.href = "/login"
+	                            		location.href = "/bind"
 	                            	}
 								})
 								

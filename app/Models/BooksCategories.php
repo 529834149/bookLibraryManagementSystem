@@ -23,9 +23,16 @@ class BooksCategories extends Model
     }
     public function article()
     {
-        return $this->hasOne(Article::class);
+        return $this->belongsTo(Article::class);
     }
-    
+    public function articles()
+    {
+        return $this->hasMany(Article::class,'category_id');
+    }
+    // public function articles()
+    // {
+    //      return $this->hasMany('App\Models\Article','category_id');
+    // }
  	// public function __construct(array $attributes = [])
   //   {
   //       parent::__construct($attributes);

@@ -14,6 +14,7 @@ class Article extends Model
     protected $guarded = [];
     protected $primaryKey = 'id';//定义主键
     protected $title ='文章';
+   
  	public function comments()
     {
 
@@ -24,4 +25,13 @@ class Article extends Model
     	
         return $this->belongsTo(BooksCategories::class);
     }
+    public function getCreatedAtAttribute($date) {
+        if (Carbon::now() > Carbon::parse($date)->addDays(15)) {
+            return Carbon::parse($date);
+        }
+
+        return Carbon::parse($date)->diffForHumans();
+    }
+    
+   
 }

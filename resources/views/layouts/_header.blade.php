@@ -1,5 +1,5 @@
  <div class="micronews-header-wrap">
-    <div class="micronews-header w1000 layui-clear">
+    <div class="micronews-header w2000 layui-clear">
       <h1 class="logo">
         <a href="index.html">
           <img src="/public/default/res/static/images/LOGO.png" alt="logo">
@@ -7,14 +7,17 @@
         </a>
       </h1>
       <p class="nav">
-        <a href="/" class="active">首页</a>
-        <a href="list.html">24小时</a>
+          <a href="/" class="active">首页</a>
+        @foreach($navs as $v)
+          <a href="/category/{{$v['id']}}/{{$v['short_name']}}" >{{$v['title']}}</a>
+        @endforeach
+       <!--  <a href="list.html">24小时</a>
         <a href="list.html">技术闻言</a>
         <a href="list.html">资讯</a>
         <a href="list.html">文档在线</a>
-        <a href="list.html">关于我</a>
+        <a href="list.html">关于我</a> -->
       </p>
-      <div class="search-bar">
+      <!-- <div class="search-bar">
         <form class="layui-form" action="">
           <div class="layui-form-item">
             <div class="layui-input-block">
@@ -23,7 +26,7 @@
             </div>
           </div>
         </form>
-      </div>
+      </div> -->
       <div class="login">
         @guest
            <a href="{{ route('login') }}">  
@@ -48,7 +51,10 @@
       </div>
       <div class="mobile-nav">
         <ul class="layui-nav" lay-filter="">
-          <li class="layui-nav-item layui-this"><a href="index.html">最新</a></li>
+          <li class="layui-nav-item layui-this"><a href="/">首页</a></li>
+          @foreach($navs as $v)
+            <li class="layui-nav-item"><a href="/category/{{$v['id']}}/{{$v['short_name']}}">{{$v['title']}}</a></li>
+          @endforeach
           <li class="layui-nav-item"><a href="list.html">娱乐</a></li>
           <li class="layui-nav-item"><a href="list.html">生活</a></li>
           <li class="layui-nav-item"><a href="list.html">财经</a></li>

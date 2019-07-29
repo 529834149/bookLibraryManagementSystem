@@ -6,6 +6,12 @@ use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
+    public function get_article(Request $request,$id,$short_name)
+    {
+        var_dump($id);
+        var_dump($short_name);
+        var_dump($request->all());
+    }
     /**
      * Display a listing of the resource.
      *

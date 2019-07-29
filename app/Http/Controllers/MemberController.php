@@ -87,4 +87,8 @@ class MemberController extends Controller
     {
         //
     }
+    public function bind_mobile(Request $request)
+    {
+        return view('member.mobile_bind');
+    }
 }

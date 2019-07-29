@@ -29,3 +29,7 @@ Auth::routes();
 
 //判断当前手机号是否绑定
 Route::resource('is_bind', 'MemberController');
+Route::get('bind_mobile_page', 'MemberController@bind_mobile');
+//前端首页分类文章
+Route::get('category/{id}/{name1}/{name2}', 'ArticleController@get_article');
+
