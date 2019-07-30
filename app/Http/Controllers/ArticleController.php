@@ -7,6 +7,7 @@ use App\Models\BooksCategories;
 use App\Models\Article;
 use App\Models\Member;
 use App\Models\Comments;
+use App\Models\BooksCollection;
 use Validator;
 class ArticleController extends Controller
 {
@@ -66,11 +67,17 @@ class ArticleController extends Controller
      */
     public function show(Article $article,$id)
     {
+        //浏览自增
+        \DB::table('books_article')->where('id',$id)->increment('click');
+
         $article = Article::find($id);
         $cate = BooksCategories::find($article['category_id']);
         $article['cate_name'] = $cate['title'];
 
-
+        //是否收藏
+        $uid = \Auth::id();
+        $is_coll = BooksCollection::where('uid',$uid)->where('aid',$id)->first();
+        
         //文章推荐
         $publish_article = Article::whereNotIn('id',[$article['id']])->take(10)->get();
       
@@ -82,7 +89,7 @@ class ArticleController extends Controller
                 return $comment->only(['id', 'content', 'created_at','uid','pic','realname']);
         });
         $comments_data = $comments->toarray();
-        return view('article.detail',compact('article','publish_article','comments_data'));
+        return view('article.detail',compact('article','publish_article','comments_data','is_coll'));
     }
 
     /**

@@ -19,8 +19,8 @@
                 </span>
                 <a href="#message">
                 <span class="icon message" >
-                  <i class="layui-icon layui-icon-dialogue"></i>
-                  <b>{{$article['post_num']}}</b>条
+                  <i class="layui-icon layui-icon-dialogue "></i>
+                  <b class="nums">{{count($comments_data)}}</b>条
                 </span>
                 </a>
                 <span class="icon time">
@@ -51,14 +51,19 @@
                   <i class="icon layui-icon layui-icon-login-qq"></i>
                 </a>
                 <button class="layui-btn Collection">
-                  ❤<span>已收藏</span>
+                    @if($is_coll)
+                        ❤<span>已收藏</span>
+                    @else
+                         ❤<span>收藏</span>
+                    @endif
+                   
                 </button>
               </div>
             </div>
             <div class="leave-message" id="message">
               <div class="tit-box">
                 <span class="tit">网友跟帖</span>
-                <span class="num"><b>500</b>条</span>
+                <span class="num"><b class="nums1">{{count($comments_data)}}</b>条</span>
               </div>
                 
                 <div class="content-box">

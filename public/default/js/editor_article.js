@@ -43,7 +43,6 @@
                             }else{
                                 var name =conts.realname;
                             }
-                            console.log(name)
                             html += '<div class="liCont">'
                             html += '<a href="#"><img src="/default/res/static/images/header_img1.png"></a>'
                             html += '<div class="item-cont">'
@@ -54,6 +53,7 @@
                             html += '</div>'
                             html += '</div>'
                             $('#nocomm').remove();
+                            // $('.nums1').html(parselnt(nums1)+1);
                             $('.ulCommentList').prepend(html);
                         }
                      }, 
