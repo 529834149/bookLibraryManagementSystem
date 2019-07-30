@@ -37,11 +37,18 @@
                             layer.closeAll();
                             var conts = data.date;
                             var html = '';
+                            var name = '';
+                            if(!conts.realname){
+                                var name  ='匿名';
+                            }else{
+                                var name =conts.realname;
+                            }
+                            console.log(name)
                             html += '<div class="liCont">'
                             html += '<a href="#"><img src="/default/res/static/images/header_img1.png"></a>'
                             html += '<div class="item-cont">'
                             html += '<div class="cont">'
-                            html += '<p><span class="name">'+conts.realname+'</span><span class="time">'+conts.create1+'</span></p>'
+                            html += '<p><span class="name">'+name+'</span><span class="time">'+conts.create1+'</span></p>'
                             html += '<p class="text">'+conts.content+'</p>'
                             html += '</div>'
                             html += '</div>'

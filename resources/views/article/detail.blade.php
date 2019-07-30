@@ -136,7 +136,16 @@
                             <a href="#"><img src="/default/res/static/images/header_img1.png"></a>
                             <div class="item-cont">
                                 <div class="cont">
-                                    <p><span class="name">@if($v['realname']) {{$v['realname']}} @else 匿名 endif</span><span class="time">{{ \Carbon\Carbon::parse($v['created_at'])->diffForHumans() }}</span></p>
+                                    <p>
+                                        <span class="name">
+                                            @if($v['realname'])
+                                                {{$v['realname']}}
+                                            @else
+                                            匿名
+                                            @endif
+
+                                        </span>
+                                        <span class="time">{{ \Carbon\Carbon::parse($v['created_at'])->diffForHumans() }}</span></p>
                                     <p class="text">{{$v['content']}}</p>
                                 </div>
                             </div>
