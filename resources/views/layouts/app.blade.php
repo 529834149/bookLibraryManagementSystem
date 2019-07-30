@@ -58,6 +58,7 @@
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script type="text/javascript" src="/default/res/layui/layui.js"></script>
   <script type="text/javascript" src="/default/js/bind_mobile.js"></script>
+ 
   <script>
     layui.config({
       base: '/default/res/static/js/' 

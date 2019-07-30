@@ -55,11 +55,6 @@
           @foreach($navs as $v)
             <li class="layui-nav-item"><a href="/category/{{$v['id']}}/{{$v['short_name']}}">{{$v['title']}}</a></li>
           @endforeach
-          <li class="layui-nav-item"><a href="list.html">娱乐</a></li>
-          <li class="layui-nav-item"><a href="list.html">生活</a></li>
-          <li class="layui-nav-item"><a href="list.html">财经</a></li>
-          <li class="layui-nav-item"><a href="list.html">科技</a></li>
-          <li class="layui-nav-item"><a href="list.html">军事</a></li>
         </ul>
       </div>  
     </div>

@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Comments;
 use App\Models\BooksCategories;
-
+use Carbon\Carbon;
 class Article extends Model
 {
     protected $connection = 'mysql';
@@ -14,7 +14,7 @@ class Article extends Model
     protected $guarded = [];
     protected $primaryKey = 'id';//定义主键
     protected $title ='文章';
-   
+
  	public function comments()
     {
 
