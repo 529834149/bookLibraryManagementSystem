@@ -4,6 +4,7 @@
 
 
 @section('content')
+  <link rel="stylesheet" href="/default/share/css/share.min.css">
  <div class="micronews-container micronews-details-container w1000">
     <div class="layui-fluid">
       <div class="layui-row">
@@ -40,22 +41,17 @@
               <pre style="color: #666;white-space: normal;background-color: #f5f5f5;">{{$article['article_summary']}}</pre>
               <p>{!!$article['article_body']!!}</p>
               <div class="share-title">
-                <span class="txt">分享:</span>
-                <a href="#">
-                  <i class="icon layui-icon layui-icon-login-wechat"></i>
-                </a>
-                <a href="#">
-                  <i class="icon layui-icon layui-icon-login-weibo"></i>
-                </a>
-                <a href="#">
-                  <i class="icon layui-icon layui-icon-login-qq"></i>
-                </a>
+                
                 <button class="layui-btn Collection">
-                    @if($is_coll)
-                        ❤<span id="collection">已收藏</span>
+                    @guest
+                        ❤<span id="collection">收藏</span>
                     @else
-                         ❤<span id="collection">收藏</span>
-                    @endif
+                        @if($is_coll)
+                            ❤<span id="collection">已收藏</span>
+                        @else
+                             ❤<span id="collection">收藏</span>
+                        @endif
+                    @endguest
                    
                 </button>
               </div>
@@ -203,7 +199,7 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="/default/res/layui/layui.js"></script>
     <script type="text/javascript" src="/default/js/editor_article.js"></script>
-
+    <script src="/default/share/js/jquery.share.min.js"></script>
 @stop
 @section('footer')
    @include('layouts._footer')

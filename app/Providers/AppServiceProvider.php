@@ -17,7 +17,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Carbon::setLocale('zh');
         Schema::defaultStringLength(191);
-        $navs = BooksCategories::orderBy('order','ASC')->take(17)->get();
+        $navs = BooksCategories::orderBy('order','ASC')->take(5)->get();
         view()->share('navs',$navs);
     }
 

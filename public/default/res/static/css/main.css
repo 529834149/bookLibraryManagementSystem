@@ -32,7 +32,7 @@
 html, body{height: 100%;}
 /*header*/
 .micronews-header-wrap{border-bottom: 1px solid #6395b8; background: #fff;}
-.micronews-header{line-height: 80px; height: 70px; position: relative; font-size: 16px;}
+.micronews-header{line-height: 70px; height: 70px; position: relative; font-size: 16px;}
 .micronews-header .logo,.micronews-header .nav,.micronews-header .search-bar,.micronews-header .search-bar button,.micronews-header .search-bar input{float: left;}
 .micronews-header .search-bar input{background: #f6f6f8;}
 .micronews-header .logo{width: 100px; text-align: center;}
@@ -41,10 +41,10 @@ html, body{height: 100%;}
 .micronews-header .nav a.active{background: #6294b5; color: #fff;}
 .micronews-header .nav a.active:hover{color:#fff;}
 .micronews-header .nav a:hover{color: #6294b5;}
-.micronews-header .search-bar{width: 280px; height: 38px; margin: 21px 0 0 20px; font-size: 14px;}
+.micronews-header .search-bar{width: 280px; height: 38px; margin: 17px 0 0 20px; font-size: 14px;}
 .micronews-header .search-bar .layui-form-item{margin-bottom: 0;}
 .micronews-header .search-bar .layui-input-block{margin-left: 0; height: 38px;}
-.micronews-header .search-bar input{width: 170px; border:1px solid #e9eaec; border-right: none;  border-radius: 2px 0px 0px 2px;}
+.micronews-header .search-bar input{width: 229px; border:1px solid #e9eaec; border-right: none;  border-radius: 2px 0px 0px 2px;}
 .micronews-header .search-bar button{width: 50px; background: #6294b5; padding:0; border-radius: 0 2px 2px 0px;}
 .micronews-header .login img{height: 100%;}
 .micronews-header .login{ position: absolute; right: 0; top: 0px; } 
@@ -136,7 +136,8 @@ html, body{height: 100%;}
 .micronews-details-container .leave-message .tit-box .num{color: #b5b9bd;}
 .micronews-details-container .leave-message .tit-box b{color: #ec414d;}
 .micronews-details-container .leave-message .tear-box img{float: left;}
-.micronews-details-container .leave-message .tear-box form{padding-left: 50px; margin:10px 0;}
+.micronews-details-container .leave-message .tear-box form{padding-left: 0px; margin:10px 0;}
+/*.micronews-details-container .leave-message .tear-box form{padding-left: 50px; margin:10px 0;}*/
 .micronews-details-container .content-box .layui-form .layui-form-item{clear:none; margin-bottom: 0;}
 .micronews-details-container .content-box .layui-form  .layui-btn{width: 90px; height: 30px; line-height: 30px; background: #6294b5; position: relative; z-index: 10; border-radius: 0}
 .micronews-details-container .content-box .layui-form .layui-textarea{border-radius: 0}

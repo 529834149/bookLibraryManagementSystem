@@ -8,6 +8,7 @@
   <link rel="stylesheet" type="text/css" href="/default/res/layui/css/layui.css">
   <link rel="stylesheet" type="text/css" href="/default/res/static/css/main.css">
   <link href="/css/app.css" rel="stylesheet">
+  
 </head>
 <body class="micronews {{ route_class() }}-page ">
     @guest
@@ -55,10 +56,27 @@
   <!-- end-content-laytpl-->
   @yield('footer')
 
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-  <script type="text/javascript" src="/default/res/layui/layui.js"></script>
-  <script type="text/javascript" src="/default/js/bind_mobile.js"></script>
- 
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="/default/res/layui/layui.js"></script>
+<script type="text/javascript" src="/default/js/bind_mobile.js"></script>
+<script type="text/javascript">
+    var urlstr = location.href;
+    var urlstatus=false;
+    $("#siteMenu a").each(function () {
+        if ((urlstr + '/').indexOf($(this).attr('href')) > -1&&$(this).attr('href')!='') {
+            $(this).addClass('active');
+            urlstatus = true;
+        } else {
+            $(this).removeClass('active');
+        }
+        if($("#siteMenu  a.active").length>1){
+            $("#siteMenu a").eq(0).removeClass('active');
+        }
+    });
+    if (!urlstatus) {
+       $("#siteMenu a").eq(0).addClass('active'); 
+    }
+</script>
   <script>
     layui.config({
       base: '/default/res/static/js/' 
@@ -68,6 +86,8 @@
       index.seachBtn()
       index.arrowutil()
     });
+
+
   </script>
     <!--[if lt IE 9]>
     <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>

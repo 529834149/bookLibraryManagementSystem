@@ -1,16 +1,17 @@
  <div class="micronews-header-wrap">
-    <div class="micronews-header w2000 layui-clear">
+    <div class="micronews-header w1000 layui-clear">
       <h1 class="logo">
         <a href="index.html">
-          <img src="/public/default/res/static/images/LOGO.png" alt="logo">
+          <img src="/public/default/res/static/images/LOGO.png" width="66" style="margin-top: -27px" alt="logo">
           <span class="layui-hide">LOGO</span>
         </a>
       </h1>
-      <p class="nav">
+      <p class="nav" id="siteMenu">
           <a href="/" class="active">首页</a>
         @foreach($navs as $v)
           <a href="/category/{{$v['id']}}/{{$v['short_name']}}" >{{$v['title']}}</a>
         @endforeach
+          <a href="/about" class="">关于</a>
        <!--  <a href="list.html">24小时</a>
         <a href="list.html">技术闻言</a>
         <a href="list.html">资讯</a>
