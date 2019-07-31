@@ -53,6 +53,8 @@ class ArticleController extends Controller
             ->where('books_article.category_id',$cateid)
             ->orderBy('created_at','desc')
             ->paginate(15);
+        //评论数
+       
         //热门资讯
         $hot_article = Article::whereNotIn('category_id',[$cateid])->orderBy('post_num','desc')->take(12)->get();
 
@@ -177,6 +179,8 @@ class ArticleController extends Controller
         $Comments['create1'] = \Carbon\Carbon::parse($Comments['created_at'])->diffForHumans();
         $member = Member::find($request->input('uid'));
         $Comments['realname'] = $member['realname'];
+
+        \DB::table('books_article')->where('id',intval($request->input('aid')))->increment('post_num');
         return response()->json(['code' => 200,'message'=>'发帖成功','date'=>$Comments]);
 
     }
