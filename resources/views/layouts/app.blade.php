@@ -60,6 +60,7 @@
 <script type="text/javascript" src="/default/res/layui/layui.js"></script>
 <script type="text/javascript" src="/default/js/bind_mobile.js"></script>
 <script type="text/javascript">
+    //导航选中状态
     var urlstr = location.href;
     var urlstatus=false;
     $("#siteMenu a").each(function () {
