@@ -34,4 +34,8 @@ Route::post('send_editor', 'ArticleController@editor_save');
 Route::post('collection', 'ArticleController@collection');
 //前端首页分类文章
 Route::get('category/{id}/{name1}/{name2}', 'ArticleController@get_article');
+// 
+Route::get('member/center', 'MemberController@member');
+
+
 

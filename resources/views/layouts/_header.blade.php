@@ -11,7 +11,7 @@
         @foreach($navs as $v)
           <a href="/category/{{$v['id']}}/{{$v['short_name']}}" >{{$v['title']}}</a>
         @endforeach
-          <a href="/about" class="">关于</a>
+          <a href="/member/center" class="">关于</a>
        <!--  <a href="list.html">24小时</a>
         <a href="list.html">技术闻言</a>
         <a href="list.html">资讯</a>
@@ -34,6 +34,7 @@
             登录
           </a>
         @else
+      
          <a href="">  
             <form action="{{ route('logout') }}" method="POST" onsubmit="return confirm('您确定要退出吗？');">
                   {{ csrf_field() }}
@@ -54,9 +55,13 @@
         <ul class="layui-nav" lay-filter="">
           <li class="layui-nav-item layui-this"><a href="/">首页</a></li>
           @foreach($navs as $v)
-            <li class="layui-nav-item"><a href="/category/{{$v['id']}}/{{$v['short_name']}}">{{$v['title']}}</a></li>
+            <li class="layui-nav-item">
+                <a href="/category/{{$v['id']}}/{{$v['short_name']}}">{{$v['title']}}</a>
+                
+          </li>
           @endforeach
         </ul>
       </div>  
     </div>
   </div>
+

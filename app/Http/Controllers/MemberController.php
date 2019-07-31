@@ -91,4 +91,10 @@ class MemberController extends Controller
     {
         return view('member.mobile_bind');
     }
+
+    //个人中心
+    public function member(Request $request)
+    {
+        return view('member.index');
+    }
 }
