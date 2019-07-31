@@ -179,7 +179,6 @@ class ArticleController extends Controller
         $Comments['create1'] = \Carbon\Carbon::parse($Comments['created_at'])->diffForHumans();
         $member = Member::find($request->input('uid'));
         $Comments['realname'] = $member['realname'];
-
         \DB::table('books_article')->where('id',intval($request->input('aid')))->increment('post_num');
         return response()->json(['code' => 200,'message'=>'发帖成功','date'=>$Comments]);
 
