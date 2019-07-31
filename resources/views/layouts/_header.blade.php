@@ -1,7 +1,7 @@
  <div class="micronews-header-wrap">
     <div class="micronews-header w1000 layui-clear">
       <h1 class="logo">
-        <a href="index.html">
+        <a href="/">
           <img src="/public/default/res/static/images/LOGO.png" width="66" style="margin-top: -27px" alt="logo">
           <span class="layui-hide">LOGO</span>
         </a>
