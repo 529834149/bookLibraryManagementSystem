@@ -51,6 +51,11 @@ class RegisterController extends Controller
             'username' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:books_member',
             'captcha' => 'required|required|captcha',
+        ], [
+            'captcha.required' => '验证码不能为空',
+            'captcha.captcha' => '请输入正确的验证码',
+            'username.required' => '请输入用户名',
+            'email.required' => '请输入正确的邮箱',
         ]);
     }
 
