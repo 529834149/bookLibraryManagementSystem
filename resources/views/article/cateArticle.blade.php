@@ -50,8 +50,10 @@
                                     </div>
                                 </div>
                             @endif
+
                         
                         @endforeach
+                        {{$article_list->links('common.pagination')}}
                         @else
                           <div class="item">   
                               <p>暂无数据</p>

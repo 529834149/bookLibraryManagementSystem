@@ -27,7 +27,7 @@ class MemberController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new Member);
-
+        $grid->pic('用户头像')->image();
         $grid->filter(function($filter){
             // 去掉默认的id过滤器
             $filter->disableIdFilter();
@@ -112,11 +112,12 @@ class MemberController extends AdminController
         $form = new Form(new Member);
         $form->display('member_id', __('唯一标识'));
         $form->text('realname', __('姓名'));
-        $form->email('email', __('用户邮箱'))->required();
-        $form->radio('gender', '性别')->options(['f' => '女', 'm'=> '男'])->default('n')->required();
+        $form->email('email', __('用户邮箱'));
+        $form->radio('gender', '性别')->options(['f' => '女', 'm'=> '男'])->default('n');
+        $form->image('pic','用户头像')->uniqueName();
         //$form->select('gender', '性别')->options($directors)->required();
         $form->mobile('mobile', __('手机号'))->options(['mask' => '999 9999 9999'])->required();
-        $form->text('identification_card', __('身份证号'))->required();
+        $form->text('identification_card', __('身份证号'));
         //$form->radio('is_borrowing', '是否借阅')->options(['y' => '已经借阅', 'n'=> '未借阅'])->default('n')->required();
        // $form->datetime('return_date','归还时间')->format('YYYY-MM-DD HH:mm:ss')->required();
        // $form->number('member_id', __('Member id'))->required();

@@ -52,7 +52,7 @@ class ArticleController extends Controller
             ->select('books_article.*', 'books_categories.title as cate_title', 'books_categories.id as cate_id','books_categories.short_name')
             ->where('books_article.category_id',$cateid)
             ->orderBy('created_at','desc')
-            ->get()->toarray();
+            ->paginate(15);
         //热门资讯
         $hot_article = Article::whereNotIn('category_id',[$cateid])->orderBy('post_num','desc')->take(12)->get();
 
