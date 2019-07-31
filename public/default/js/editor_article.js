@@ -4,8 +4,52 @@
             //this.show_exam_status();
 			//is_show_status 状态是否存在
 			//this.validation();//表单验证
-			this.is_login();
+			this.is_login();//判断是否登录
+            this.collection();//点击收藏
         } ,
+        collection:function(){
+            $('#collection').click(function(){
+                if($('input[name="uid"]').val()){
+                    var collection = $('#collection').text();
+                    var uid = $('input[name="uid"]').val()
+                    var aid = $('input[name="aid"]').val()
+                    $.ajax({
+                        type:'post',
+                        url:'/collection',
+                        data:{
+                            uid:uid,
+                            aid:aid,
+                            collection:collection,
+                        },
+                        dataType:'json',
+                        beforeSend:function(){
+                            var index = layer.load(0, {shade: false}); //0代表加载的风格，支持0-2
+                        },
+                        success:function(data){
+                            if(data.code ==200){
+                                layer.closeAll();
+                                var msg = data.message;
+                                if(msg =='取消收藏'){
+                                     $('#collection').html('收藏');
+                                }
+                                if(msg =='收藏成功'){
+                                     $('#collection').html('已收藏');
+                                }
+                               
+                                
+                            }
+                         }, 
+                    });
+                }else{
+                   layer.msg('请登录！',{
+                        time:1000,
+                        end:function () {
+                            location.href = "/login"
+                        }
+                    })
+                }
+            })
+        },
         //点击编辑器判断是否登录
         is_login:function(){
            $('#editor_button').click(function(){

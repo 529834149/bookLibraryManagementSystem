@@ -11,6 +11,39 @@ use App\Models\BooksCollection;
 use Validator;
 class ArticleController extends Controller
 {
+    public function collection(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'uid' => 'required',
+            'aid' => 'required',
+            'collection' => 'required',
+        ]);
+        if ($validator->fails()) {
+             return response()->json(['code' => 500,'message'=>'服务器繁忙']);
+        }
+        $collection =BooksCollection::where('aid',intval($request->input('aid')))->where('uid',intval($request->input('uid')))->first();
+        if($collection){
+            $del = BooksCollection::destroy(intval($collection['id']));
+            if($del){
+                return response()->json(['code' => 200,'message'=>'取消收藏']);
+            }else{
+                return response()->json(['code' => 500,'message'=>'网络失败']);
+            }
+            //取消收藏
+        }else{
+            //收藏
+            $collection = BooksCollection::create([
+                'aid' => $request->input('aid'),
+                'uid' => $request->input('uid'),
+            ]);
+            if($collection){
+                return response()->json(['code' => 200,'message'=>'收藏成功']);
+            }else{
+                return response()->json(['code' => 500,'message'=>'网络失败']);
+            }
+        }
+        // BooksCollection::destroy();
+    }
     public function get_article(Request $request,$cateid,$short_name)
     {
         // $article_list = Article::take(12)->orderBy('created_at','desc')->get();

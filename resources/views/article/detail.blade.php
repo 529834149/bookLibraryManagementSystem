@@ -52,9 +52,9 @@
                 </a>
                 <button class="layui-btn Collection">
                     @if($is_coll)
-                        ❤<span>已收藏</span>
+                        ❤<span id="collection">已收藏</span>
                     @else
-                         ❤<span>收藏</span>
+                         ❤<span id="collection">收藏</span>
                     @endif
                    
                 </button>
