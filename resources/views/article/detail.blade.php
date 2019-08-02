@@ -4,7 +4,6 @@
 
 
 @section('content')
-  <link rel="stylesheet" href="/default/share/css/share.min.css">
  <div class="micronews-container micronews-details-container w1000">
     <div class="layui-fluid">
       <div class="layui-row">
@@ -199,7 +198,6 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="/default/res/layui/layui.js"></script>
     <script type="text/javascript" src="/default/js/editor_article.js"></script>
-    <script src="/default/share/js/jquery.share.min.js"></script>
 @stop
 @section('footer')
    @include('layouts._footer')

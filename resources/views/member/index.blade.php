@@ -13,78 +13,130 @@
               				<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
 							  	<ul class="layui-tab-title">
 							    	<li class="layui-this">个人信息</li>
-							    	<li>我的文章</li>
 							    	<li>我的收藏</li>
 							    	<li>我的评论</li>
-							    	<li>写文章</li>
-							    	<li>修改密码</li>
-							    	<li>绑定手机</li>
+							    	<!-- <li>修改密码</li>   -->
 							  	</ul>
 							  	<div class="layui-tab-content">
 							    	<div class="layui-tab-item">
-							    		<form class="layui-form" action="">
+							    		<form class="layui-form layui-form-pane">
 										  	<div class="layui-form-item">
 											    <label class="layui-form-label">昵称</label>
-											    <div class="layui-input-block">
-											      	<input type="text" name="title" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+											    <div class="layui-input-inline">
+											      	<input type="text" value="{{$member['realname']}}" readonly="readonly" style="cursor:not-allowed;"  name="realname" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
 											    </div>
 										  	</div>
 										  	<div class="layui-form-item">
-											    <label class="layui-form-label">性别</label>
-											    <div class="layui-input-block">
-											      	<select name="city" lay-verify="required">
-											        	<option value=""></option>
-											        	<option value="0">男</option>
-											        	<option value="1">女</option>
-											        	<option value="2">保密</option>
-											      	</select>
+											    <label class="layui-form-label">邮箱</label>
+											    <div class="layui-input-inline">
+											      	<input type="text" value="{{$member['email']}}" name="email" readonly="readonly"  style="cursor:not-allowed;" required  lay-verify="required" placeholder="请输入邮箱" autocomplete="off" class="layui-input">
 											    </div>
 										  	</div>
-										  	<div class="layui-form-item layui-form-text">
-									    		<label class="layui-form-label">自我介绍</label>
-										    	<div class="layui-input-block">
-										      		<textarea name="desc" placeholder="请输入内容" class="layui-textarea"></textarea>
-									    		</div>
+										  	<div class="layui-form-item">
+											    <label class="layui-form-label">用户名</label>
+											    <div class="layui-input-inline">
+											      	<input type="text" value="{{$member['username']}}" name="username" readonly="readonly" style="cursor:not-allowed;" required  lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+											    </div>
 										  	</div>
-										  <div class="layui-form-item">
-										    <div class="layui-input-block">
-										      <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
-										      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
-										    </div>
-										  </div>
-										</form>
-										 
-										
-							    	</div>
-							    	<div class="layui-tab-item">
-							    		
-							    		
-							    	</div>
-							    	<div class="layui-tab-item">32</div>
-							    	<div class="layui-tab-item">33</div>
-							    	<div class="layui-tab-item">334</div>
-							    	<div class="layui-tab-item">修改密码</div>
-							    	<div class="layui-tab-item">
-
-							    		<form class="layui-form layui-form-pane" action="">
+										  	<input type="hidden" name="uid" value="{{Auth::id() }}">
 									        <div class="layui-form-item">
 									          	<label class="layui-form-label">手机号</label>
 									          	<div class="layui-input-inline"  >
-									            	<input type="text" name="mobile" required="" lay-verify="required" placeholder="请输入手机号" autocomplete="off" class="layui-input" >
+									            	<input type="text" name="mobile" required="" value="{{$member['mobile']}}" lay-verify="required" placeholder="请输入手机号" autocomplete="off" class="layui-input" >
 									          	</div>
 									        </div>
 									        <div class="layui-form-item">
 									          	<label class="layui-form-label"> 输入验证码</label>
 									          	<div class="layui-input-inline">
-									            	<input type="text" name="code" required="" lay-verify="required" placeholder="请输入验证码" autocomplete="off" class="layui-input">
+									            	<input type="text" id="code" name="code" required="" lay-verify="required" placeholder="请输入验证码" autocomplete="off" class="layui-input">
 									          	</div>
-									          	<label class="layui-form-label" style="cursor:pointer;background-color:#D1D1D1 ">获取短信验证码</label>
+									          	<label class="layui-form-label" id="codenames" name="codenames" style="cursor:pointer;background-color:#D1D1D1 ">获取短信验证码</label>
+									        </div>
+									        <input type="hidden" name="sendCode_key" id="sendCode_key">
+									        <div class="layui-form-item">
+									          	<button class="layui-btn" id="submit_botton" onclick="return false;">立即提交</button>
+									        </div>
+								      	</form>
+							    	</div>
+							    	<div class="layui-tab-item">
+							    		<table class="layui-table">
+										  	<colgroup>
+											    <col width="10%">
+											    <col width="70%">
+											    <col width="10%">
+											    <col>
+										  	</colgroup>
+										  	<thead>
+											    <tr>
+											      	<th>文章ID</th>
+											      	<th>文章标题</th>
+											      	<th>收藏时间</th>
+											    </tr> 
+											  </thead>
+										  	<tbody>
+										  		@foreach($article_list as $v)
+											    <tr>
+											    	<td>{{$v->article_id}}</td>
+											      	<td><a href="/article/{{$v->article_id}}">{{$v->article_title}}</a></td>
+											      	<td>{{$v->created_at}}</td>
+											    </tr>
+											   	@endforeach
+										  	</tbody>
+
+										</table>
+										{{$article_list->links('common.pagination')}}
+							    	</div>
+							    	<div class="layui-tab-item">
+							    		<table class="layui-table">
+										  	<colgroup>
+											    <col width="10%">
+											    <col width="50%">
+											    <col width="15%">
+											    <col width="20%">
+											    <col>
+										  	</colgroup>
+										  	<thead>
+											    <tr>
+											    	<th>文章ID</th>
+											      	<th>文章标题</th>
+											      	<th>评论</th>
+											      	<th>评论时间</th>
+											    </tr> 
+											  </thead>
+										  	<tbody>
+										  		@foreach($article_list as $v)
+											    <tr>
+											    	<td>{{$v->article_id}}</td>
+											      	<td><a href="/article/{{$v->article_id}}">{{$v->article_title}}</a></td>
+											      	<td>{{$v->content}}</td>
+											      	<td>{{$v->created_at}}</td>
+											    </tr>
+											   	@endforeach
+										  	</tbody>
+										</table>
+										{{$article_list->links('common.pagination')}}
+							    	</div>
+							    	<!-- <div class="layui-tab-item">
+							    		<form class="layui-form layui-form-pane" action="">
+									        <div class="layui-form-item">
+									          	<label class="layui-form-label">原密码</label>
+									          	<div class="layui-input-inline"  >
+									            	<input type="text" name="mobile" required="" lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input" >
+									          	</div>
+									        </div>
+									        <div class="layui-form-item">
+									          	<label class="layui-form-label">新密码</label>
+									          	<div class="layui-input-inline">
+									            	<input type="text" name="code" required="" lay-verify="required" placeholder="请输入新密码" autocomplete="off" class="layui-input">
+									          	</div>
 									        </div>
 									        <div class="layui-form-item">
 									          	<button class="layui-btn" lay-submit="" lay-filter="formDemoPane">立即提交</button>
 									        </div>
 								      	</form>
-							    	</div>							
+							    	</div>
+							    		 -->
+							    			
 							    </div>
 							</div>
 	              		</div>
@@ -96,22 +148,12 @@
 </div>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="/default/res/layui/layui.js"></script>
-<script>
-//Demo
-layui.use('form', function(){
-  var form = layui.form;
-  
-  //监听提交
-  form.on('submit(formDemo)', function(data){
-    layer.msg(JSON.stringify(data.field));
-    return false;
-  });
-});
-</script>
+<script type="text/javascript" src="/default/js/memberinfo.js"></script>
+
 <script>
 $(".layui-tab-title li").click(function(){
 		var picTabNum = $(this).index();
-		console.log("当前图片标题下标是："+picTabNum);
+		// console.log("当前图片标题下标是："+picTabNum);
 		sessionStorage.setItem("picTabNum",picTabNum);
 	});
 	$(function(){
@@ -121,6 +163,7 @@ $(".layui-tab-title li").click(function(){
 	})
 
 </script>
+
 @stop
 @section('footer')
    @include('layouts._footer')

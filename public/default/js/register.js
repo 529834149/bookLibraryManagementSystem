@@ -90,7 +90,7 @@
 	            	return false;
 	            }
 	            //验证码
- 				var code = $('input[name="code"]').val();
+ 				var code = $('input[name="veriCodeBtn"]').val();
  				var codereg=/^\d{4}$/;
  				if (!codereg.test(code)) {
 					layer.msg('验证码格式不正确',{
@@ -98,7 +98,6 @@
 				    });
 	            	return false;
 	            }
-	           
 				return true;
 	        
 		},

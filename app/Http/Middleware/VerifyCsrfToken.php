@@ -18,5 +18,6 @@ class VerifyCsrfToken extends Middleware
         '*is_bind*',
         '*send_editor*',
         '*collection*',
+        '*bind_mobile*',
     ];
 }

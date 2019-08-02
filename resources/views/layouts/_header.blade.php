@@ -11,7 +11,11 @@
         @foreach($navs as $v)
           <a href="/category/{{$v['id']}}/{{$v['short_name']}}" >{{$v['title']}}</a>
         @endforeach
-          <a href="/member/center" class="">关于</a>
+          @guest
+            <a href="/login" class="">关于</a>
+          @else
+            <a href="/member/center" class="">关于</a>
+          @endguest
        <!--  <a href="list.html">24小时</a>
         <a href="list.html">技术闻言</a>
         <a href="list.html">资讯</a>

@@ -13,6 +13,7 @@
 
 //首页列表
 Route::get('/', 'IndexController@index')->name('index');
+Route::get('welcome', 'IndexController@welcome');
 //注册页面
 //Route::resource('login', 'LoginController');
 //Route::resource('register', 'RegisterController');
@@ -36,6 +37,7 @@ Route::post('collection', 'ArticleController@collection');
 Route::get('category/{id}/{name1}/{name2}', 'ArticleController@get_article');
 // 
 Route::get('member/center', 'MemberController@member');
+Route::post('bind_mobile', 'MemberController@bind_mobile_update');
 
 
 

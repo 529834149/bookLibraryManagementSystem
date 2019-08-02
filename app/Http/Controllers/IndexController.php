@@ -7,6 +7,10 @@ use App\Models\BooksCategories;
 use App\Models\Article;
 class IndexController extends Controller
 {
+    public function welcome()
+    {
+        return view('welcome');
+    }
 	public function index(BooksCategories $booksCategories)
     {
     	// $article_list = Article::take(12)->orderBy('created_at','desc')->get();
