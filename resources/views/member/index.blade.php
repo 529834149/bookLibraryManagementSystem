@@ -38,7 +38,7 @@
 											      	<input type="text" value="{{$member['username']}}" name="username" readonly="readonly" style="cursor:not-allowed;" required  lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input">
 											    </div>
 										  	</div>
-										  	
+
 										  	<input type="hidden" name="uid" value="{{Auth::id() }}">
 									        <div class="layui-form-item">
 									          	<label class="layui-form-label">手机号</label>

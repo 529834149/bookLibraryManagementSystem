@@ -47,11 +47,23 @@
                     },
                     success:function(data){
                         if(data.code ==200){
-                            $('#mobile').html(data.mobile)
-                            layer.msg(data.message)
+                            // $('#mobile').html(data.mobile)
+                            // layer.msg(data.message)
+                            layer.msg(data.message,{
+                                time:3000,
+                                end:function () {
+                                    $('#mobile').html(data.mobile);
+                                    $('#codenames').html('免费获取验证码');
+                                }
+                            })
                             
                         }else{
-                            layer.msg(data.message)
+                            layer.msg(data.message,{
+                                time:1000,
+                                end:function () {
+                                    location.reload();
+                                }
+                            })
                         }
                      }, 
                 });
