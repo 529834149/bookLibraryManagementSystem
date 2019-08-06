@@ -37,7 +37,8 @@
               @endif
             
               <p class="original-tit mt30">原标题：<span>{{$article['article_title']}}</span></p>
-              <pre style="color: #666;white-space: normal;background-color: #f5f5f5;">{{$article['article_summary']}}</pre>
+              <!-- <pre style="color: #666;white-space: normal;background-color: #f5f5f5;">{{$article['article_summary']}}</pre> -->
+              <blockquote class="layui-elem-quote layui-text">{{$article['article_summary']}}</blockquote>
               <p>{!!$article['article_body']!!}</p>
               <div class="share-title">
                 
