@@ -49,12 +49,8 @@
                         console.log(data)
                         if(data.code ==200){
                             layer.closeAll();
-                            layer.msg(data.message,{
-                                time:3000,
-                                end:function () {
-                                    location.reload();
-                                }
-                            })
+                            $('#mobile').html(data.mobile)
+                            layer.msg(data.message)
                             
                         }else{
                             layer.closeAll();

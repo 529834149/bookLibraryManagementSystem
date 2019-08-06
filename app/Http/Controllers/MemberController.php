@@ -148,9 +148,11 @@ class MemberController extends Controller
            
         ]);
         if($member){
+            $mobiles = Member::where('mobile',intval($data['mobile']))->first();
              // 清除验证码缓存
             \Cache::forget($data['key']);
-            return response()->json(['code' => 200,'message'=>'注册成功']);
+            return response()->json(['code' => 200,'message'=>'注册成功','data'=>$mobiles['mobile']]);
+            // 
         }else{
              \Cache::forget($data['key']);
             return response()->json(['code' => 500,'message'=>'网络异常']);
