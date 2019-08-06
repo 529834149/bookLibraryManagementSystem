@@ -20,6 +20,7 @@ Route::get('welcome', 'IndexController@welcome');
 
 //文章详情页
 Route::get('/article/{article_id}','ArticleController@show');
+Route::get('create_post','ArticleController@create');
 
 //发送短信接口
 Route::resource('send', 'SendcodeController');

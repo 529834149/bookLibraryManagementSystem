@@ -82,6 +82,7 @@
         </div>
     </div>
 </div>
+<script type="text/javascript" src="/default/res/layui/layui.js"></script>
 @stop
 @section('footer')
    @include('layouts._footer')

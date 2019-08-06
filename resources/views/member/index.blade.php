@@ -14,7 +14,6 @@
 							  	<ul class="layui-tab-title">
 							    	<li class="layui-this">个人信息</li>
 							    	<li>我的收藏</li>
-							    	<!-- <li>修改密码</li>   -->
 							  	</ul>
 							  	<div class="layui-tab-content">
 							    	<div class="layui-tab-item">
@@ -59,7 +58,7 @@
 									          	<button class="layui-btn @if($is_bind_status =='n') layui-btn-disabled @else @endif" id="submit_botton" onclick="return false;">立即提交</button>
 									        </div>
 								      	</form>
-								      	
+
 							    	</div>
 							    	<div class="layui-tab-item">
 							    		<table class="layui-table">

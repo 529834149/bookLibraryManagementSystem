@@ -61,4 +61,5 @@
 
     </div>
   </div>
+  <script type="text/javascript" src="/default/res/layui/layui.js"></script>
 @stop

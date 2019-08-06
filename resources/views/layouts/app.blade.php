@@ -57,8 +57,9 @@
   @yield('footer')
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script type="text/javascript" src="/default/res/layui/layui.js"></script>
+<!-- <script type="text/javascript" src="/default/res/layui/layui.js"></script> -->
 <script type="text/javascript" src="/default/js/bind_mobile.js"></script>
+<!-- <script type="text/javascript" src="/default/js/post_editor.js"></script> -->
 <script type="text/javascript">
     //导航选中状态
     var urlstr = location.href;

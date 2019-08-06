@@ -38,13 +38,14 @@
             登录
           </a>
         @else
-      
+        <button type="button" id="create_post" class="layui-btn"><a href="/create_post" style="color:#FFFFFF">发帖</a></button>
          <a href="">  
             <form action="{{ route('logout') }}" method="POST" onsubmit="return confirm('您确定要退出吗？');">
                   {{ csrf_field() }}
                   <button class="btn btn-block btn-danger" type="submit" name="button">退出</button>
                 </form>
           </a>
+
         @endguest
        
         
