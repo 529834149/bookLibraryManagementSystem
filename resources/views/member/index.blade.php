@@ -14,7 +14,6 @@
 							  	<ul class="layui-tab-title">
 							    	<li class="layui-this">个人信息</li>
 							    	<li>我的收藏</li>
-							    	<li>我的评论</li>
 							    	<!-- <li>修改密码</li>   -->
 							  	</ul>
 							  	<div class="layui-tab-content">
@@ -60,13 +59,14 @@
 									          	<button class="layui-btn @if($is_bind_status =='n') layui-btn-disabled @else @endif" id="submit_botton" onclick="return false;">立即提交</button>
 									        </div>
 								      	</form>
+								      	
 							    	</div>
 							    	<div class="layui-tab-item">
 							    		<table class="layui-table">
 										  	<colgroup>
 											    <col width="10%">
-											    <col width="70%">
-											    <col width="10%">
+											    <col width="60%">
+											    <col width="20%">
 											    <col>
 										  	</colgroup>
 										  	<thead>
@@ -78,9 +78,10 @@
 											  </thead>
 										  	<tbody>
 										  		@foreach($article_list as $v)
+										
 											    <tr>
-											    	<td>{{$v->article_id}}</td>
-											      	<td><a href="/article/{{$v->article_id}}">{{$v->article_title}}</a></td>
+											    	<td>{{$v->aid}}</td>
+											      	<td><a href="/article/{{$v->aid}}">{{$v->article_title}}</a></td>
 											      	<td>{{$v->created_at}}</td>
 											    </tr>
 											   	@endforeach
@@ -89,35 +90,7 @@
 										</table>
 										{{$article_list->links('common.pagination')}}
 							    	</div>
-							    	<div class="layui-tab-item">
-							    		<table class="layui-table">
-										  	<colgroup>
-											    <col width="10%">
-											    <col width="50%">
-											    <col width="15%">
-											    <col width="20%">
-											    <col>
-										  	</colgroup>
-										  	<thead>
-											    <tr>
-											    	<th>文章ID</th>
-											      	<th>文章标题</th>
-											      	<th>评论</th>
-											      	<th>评论时间</th>
-											    </tr> 
-											  </thead>
-										  	<tbody>
-										  		@foreach($article_list as $v)
-											    <tr>
-											    	<td>{{$v->article_id}}</td>
-											      	<td><a href="/article/{{$v->article_id}}">{{$v->article_title}}</a></td>
-											      	<td>{{$v->content}}</td>
-											      	<td>{{$v->created_at}}</td>
-											    </tr>
-											   	@endforeach
-										  	</tbody>
-										</table>
-										{{$article_list->links('common.pagination')}}
+							    	
 							    	</div>
 							    	<!-- <div class="layui-tab-item">
 							    		<form class="layui-form layui-form-pane" action="">

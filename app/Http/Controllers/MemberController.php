@@ -114,7 +114,7 @@ class MemberController extends Controller
         //获取收藏
         $article_list = \DB::table('books_collection')
             ->leftJoin('books_article', 'books_collection.aid', '=', 'books_article.id')
-            ->leftJoin('books_comments', 'books_article.id', '=', 'books_comments.article_id')
+            // ->leftJoin('books_comments', 'books_article.id', '=', 'books_comments.article_id')
             ->where('books_collection.uid',$uid)
             ->paginate(20);
             // ->orderBy('created_at','desc')
