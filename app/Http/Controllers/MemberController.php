@@ -127,7 +127,7 @@ class MemberController extends Controller
         $data['mobile'] = $request->input('mobile');
         //判断是否被注册
         $is_mobile = Member::where('mobile',$data['mobile'])->first();
-        if(!$is_mobile){
+        if($is_mobile){
             return response()->json(['code' => 500,'message'=>'该手机号已经注册']);
         }
         $data['code'] =$request->input('code');

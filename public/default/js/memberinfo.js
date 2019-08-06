@@ -46,7 +46,6 @@
                         var index = layer.load(0, {shade: false}); //0代表加载的风格，支持0-2
                     },
                     success:function(data){
-                        console.log(data);return false;
                         if(data.code ==200){
                             layer.closeAll();
                             layer.msg('修改成功',{
@@ -57,11 +56,12 @@
                             })
                             
                         }else{
+                            layer.closeAll();
                             layer.msg(data.message,{
                                 time:3000,
-                                end:function () {
-                                    location.reload();
-                                }
+                                // end:function () {
+                                //     location.reload();
+                                // }
                             })
                         }
                      }, 

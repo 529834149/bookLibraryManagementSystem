@@ -9,6 +9,8 @@ class IndexController extends Controller
 {
     public function welcome()
     {
+        
+        
         return view('welcome');
     }
 	public function index(BooksCategories $booksCategories)
