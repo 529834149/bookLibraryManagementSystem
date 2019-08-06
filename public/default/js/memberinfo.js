@@ -43,23 +43,15 @@
                     dataType:'json',
                     beforeSend:function(){
                         // 加载层
-                        var index = layer.load(0, {shade: false}); //0代表加载的风格，支持0-2
+                        //var index = layer.load(0, {shade: false}); //0代表加载的风格，支持0-2
                     },
                     success:function(data){
-                        console.log(data)
                         if(data.code ==200){
-                            layer.closeAll();
                             $('#mobile').html(data.mobile)
                             layer.msg(data.message)
                             
                         }else{
-                            layer.closeAll();
-                            layer.msg(data.message,{
-                                time:3000,
-                                // end:function () {
-                                //     location.reload();
-                                // }
-                            })
+                            layer.msg(data.message)
                         }
                      }, 
                 });
