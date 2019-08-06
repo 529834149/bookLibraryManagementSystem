@@ -99,6 +99,9 @@ class MemberController extends Controller
     //个人中心
     public function member(Request $request)
     {
+        if(!\Auth::check()){
+            return redirect("/login");
+        }
         $uid = \Auth::id();
         $is_bind = \DB::table('is_bind')->where('uid',intval($uid))->first();
         $now = date('Y-m-d H:i:s',time()); 
