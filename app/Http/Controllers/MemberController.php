@@ -100,6 +100,13 @@ class MemberController extends Controller
     public function member(Request $request)
     {
         $uid = \Auth::id();
+        $is_bind = \DB::table('is_bind')->where('uid',intval($uid))->first();
+        $now = date('Y-m-d H:i:s',time()); 
+        if($is_bind && $now < $is_bind->created_at){
+            $is_bind_status = 'n';
+        }else{
+            $is_bind_status = 'y';
+        }
         $member = Member::find($uid);
         //获取收藏
         $article_list = \DB::table('books_collection')
@@ -109,7 +116,7 @@ class MemberController extends Controller
             ->paginate(20);
             // ->orderBy('created_at','desc')
             // ->paginate(20);
-        return view('member.index',compact('member','article_list'));
+        return view('member.index',compact('member','article_list','is_bind_status'));
     }
     // 手机号绑定
     public function bind_mobile_update(Request $request)
@@ -149,6 +156,16 @@ class MemberController extends Controller
         ]);
         if($member){
             $mobiles = Member::where('mobile',intval($data['mobile']))->first();
+            //mobile bind
+            $now = date('Y-m-d H:i:s',time()); 
+       
+            \DB::table('is_bind')->insert([
+                'uid'=>\Auth::id(),
+                'is_bind'=>'y',
+                'created_at'=> date("Y-m-d H:i:s",strtotime("+1months",strtotime($now)))
+            ]);
+             // $now = date('Y-m-d H:i:s',time()); 
+        // dd(date("Y-m-d H:i:s",strtotime("+1months",strtotime($now)))); 
              // 清除验证码缓存
             \Cache::forget($data['key']);
             return response()->json(['code' => 200,'message'=>'绑定成功','data'=>$mobiles['mobile']]);

@@ -56,6 +56,16 @@ If you're not in the mood to read, [Laracasts](https://laracasts.com) contains o
 	2、短信发送组件：
 			（1）composer require "overtrue/easy-sms"
 			（2）https://learnku.com/courses/laravel-advance-training/5.8/sms-provider/3994
+	3、微信登录
+			 (1)composer require socialiteproviders/weixin
+			 (2)app/Providers/EventServiceProvider.php设置当前组件 
+			 protected $listen = [
+				    \SocialiteProviders\Manager\SocialiteWasCalled::class => [
+				        // add your listeners (aka providers) here
+				        'SocialiteProviders\Weixin\WeixinExtendSocialite@handle'
+				    ],
+				];
+				
 https://blog.csdn.net/Dimo__/article/details/84936685
 http://www.clcn.net.cn/
 http://primo.clcn.net.cn:1701/primo_library/libweb/action/search.do?fn=search&ct=search&initialSearch=true&mode=Basic&tab=default_tab&indx=1&dum=true&srt=rank&vid=ST&frbg=&scp.scps=scope%3A%28ST%29+AND+scope%3A%28MGTS%29&vl%2823971421UI0%29=title&vl%28freeText0%29=%E4%B8%89%E5%9B%BD%E6%BC%94%E4%B9%89#

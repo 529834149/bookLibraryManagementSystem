@@ -49,13 +49,15 @@
 									        <div class="layui-form-item">
 									          	<label class="layui-form-label"> 输入验证码</label>
 									          	<div class="layui-input-inline">
-									            	<input type="text" id="code" name="code" required="" lay-verify="required" placeholder="请输入验证码" autocomplete="off" class="layui-input">
+									            	<input type="text" id="code" name="code" @if($is_bind_status =="n") readonly="readonly" style="cursor:not-allowed;"  @else  @endif  required="" lay-verify="required" placeholder="请输入验证码" autocomplete="off" class="layui-input">
 									          	</div>
-									          	<label class="layui-form-label" id="codenames" name="codenames" style="cursor:pointer;background-color:#D1D1D1 ">获取短信验证码</label>
+									          	<input type="hidden" name="status" id="status" value="{{$is_bind_status}}">
+									          	<span class="layui-form-label" id="codenames" name="codenames" style="cursor:pointer;background-color:#D1D1D1 ">获取短信验证码</span>
+									          	
 									        </div>
 									        <input type="hidden" name="sendCode_key" id="sendCode_key">
 									        <div class="layui-form-item">
-									          	<button class="layui-btn" id="submit_botton" onclick="return false;">立即提交</button>
+									          	<button class="layui-btn @if($is_bind_status =='n') layui-btn-disabled @else @endif" id="submit_botton" onclick="return false;">立即提交</button>
 									        </div>
 								      	</form>
 							    	</div>
@@ -152,6 +154,8 @@
 <script type="text/javascript" src="/default/js/memberinfo.js"></script>
 
 <script>
+
+	
 $(".layui-tab-title li").click(function(){
 		var picTabNum = $(this).index();
 		// console.log("当前图片标题下标是："+picTabNum);

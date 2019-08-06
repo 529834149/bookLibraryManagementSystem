@@ -39,5 +39,8 @@ Route::get('category/{id}/{name1}/{name2}', 'ArticleController@get_article');
 Route::get('member/center', 'MemberController@member');
 Route::post('bind_mobile', 'MemberController@bind_mobile_update');
 
+// 微信登录
+Route::post('socials/{social_type}/authorizations', 'AuthorizationsController@bind_mobile_update');
+
 
 

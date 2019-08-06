@@ -72,11 +72,20 @@
         },
         //发送短信验证码
         sendCode:function(){
+
             var vercode  = 0;
             var time = 120;
             var flag = true;   //设置点击标记，防止60内再次点击生效
                 //发送验证码
                 $('#codenames').click(function(){
+                    var status = $('#status').val();
+                    if(status =='n'){
+                         layer.msg('一个月只能一回，不能重复修改',{
+                            icon:5
+                        });
+                        $('#submit_botton').addClass('layui-btn-disabled');
+                        return false;
+                    }
                     $(this).attr("disabled",true);
                     var mobile = $('input[name="mobile"]').val();
                     if(!mobile){
