@@ -54,6 +54,7 @@
                                 end:function () {
                                     $('#mobile').html(data.mobile);
                                     $('#codenames').html('免费获取验证码');
+                                    location.reload();
                                 }
                             })
                             
