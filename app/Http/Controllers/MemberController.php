@@ -143,7 +143,6 @@ class MemberController extends Controller
             return response()->json(['code' => 500,'message'=>'验证码错误']);
         }
 
-        dd('1111');
         $member = Member::where('member_id',intval($request->input('uid')))->update([
             'mobile' => $data['mobile'],
            
