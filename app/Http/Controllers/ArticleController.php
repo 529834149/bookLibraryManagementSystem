@@ -80,6 +80,9 @@ class ArticleController extends Controller
      */
     public function create()
     {
+        if(!\Auth::check()){
+            return redirect("/login");
+        }
         return view('article.create_editor');
     }
 
