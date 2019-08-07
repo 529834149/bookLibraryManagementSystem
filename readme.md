@@ -65,7 +65,27 @@ If you're not in the mood to read, [Laracasts](https://laracasts.com) contains o
 				        'SocialiteProviders\Weixin\WeixinExtendSocialite@handle'
 				    ],
 				];
-				
+	4、PHP 一个比较合理的解决方案是 HTMLPurifier 。HTMLPurifier 本身就是一个独立的项目，运用『白名单机制』对 HTML 文本信息进行 XSS 过滤。这种过滤机制可以有效地防止各种 XSS 变种攻击。只通过我们认为安全的标签和属性，对于未知的全部过滤。
+			（1）composer require "mews/purifier:~2.0"
+			（2）php artisan vendor:publish --provider="Mews\Purifier\PurifierServiceProvider"
+			 (3)config/purifier.php
+			 		<?php
+						return [
+						    'encoding'      => 'UTF-8',
+						    'finalize'      => true,
+						    'cachePath'     => storage_path('app/purifier'),
+						    'cacheFileMode' => 0755,
+						    'settings'      => [
+						        'user_topic_body' => [
+						            'HTML.Doctype'             => 'XHTML 1.0 Transitional',
+						            'HTML.Allowed'             => 'div,b,strong,i,em,a[href|title],ul,ol,ol[start],li,p[style],br,span[style],img[width|height|alt|src],*[style|class],pre,hr,code,h2,h3,h4,h5,h6,blockquote,del,table,thead,tbody,tr,th,td',
+						            'CSS.AllowedProperties'    => 'font,font-size,font-weight,font-style,margin,width,height,font-family,text-decoration,padding-left,color,background-color,text-align',
+						            'AutoFormat.AutoParagraph' => true,
+						            'AutoFormat.RemoveEmpty'   => true,
+						        ],
+						    ],
+						];
+				（4)调用$topic->body = clean($topic->body, 'user_topic_body');
 https://blog.csdn.net/Dimo__/article/details/84936685
 http://www.clcn.net.cn/
 http://primo.clcn.net.cn:1701/primo_library/libweb/action/search.do?fn=search&ct=search&initialSearch=true&mode=Basic&tab=default_tab&indx=1&dum=true&srt=rank&vid=ST&frbg=&scp.scps=scope%3A%28ST%29+AND+scope%3A%28MGTS%29&vl%2823971421UI0%29=title&vl%28freeText0%29=%E4%B8%89%E5%9B%BD%E6%BC%94%E4%B9%89#

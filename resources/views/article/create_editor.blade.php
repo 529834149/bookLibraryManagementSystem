@@ -4,6 +4,11 @@
 
 @section('content')
 <link rel="stylesheet" type="text/css" href="{{ asset('/default/editor/css/simditor.css') }}">
+<style type="text/css">
+    .simditor-body img {
+      max-width:100%;
+    }
+</style>
 <div class="container">
     <div class="col-md-10 offset-md-1">
         <div class="card ">
@@ -56,9 +61,9 @@
 </div>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="{{ asset('/default/editor/js/module.js') }}"></script>
-  <script type="text/javascript" src="{{ asset('/default/editor/js/hotkeys.js') }}"></script>
-  <script type="text/javascript" src="{{ asset('/default/editor/js/uploader.js') }}"></script>
-  <script type="text/javascript" src="{{ asset('/default/editor/js/simditor.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/default/editor/js/hotkeys.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/default/editor/js/uploader.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/default/editor/js/simditor.js') }}"></script>
 
   <script>
     $(document).ready(function() {

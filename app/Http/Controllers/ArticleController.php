@@ -99,11 +99,12 @@ class ArticleController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Response 
      */
     public function store(ArticleRequest  $request,Article $article)
     {
         $article->fill($request->all());
+        $article->article_body = clean($article->article_body, 'user_topic_body');
         $article->article_summary = make_excerpt($article->article_body);
         $article->save();
         return redirect()->route('article.show', $article->id)->with('success', '帖子创建成功！');
