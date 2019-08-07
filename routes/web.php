@@ -46,6 +46,7 @@ Route::post('socials/{social_type}/authorizations', 'AuthorizationsController@bi
 //图片上传
 Route::post('upload','ArticleController@upload');
 Route::post('editor/upload','ArticleController@editor_upload');
+Route::post('upload_image','ArticleController@uploadImage');
 
 
 

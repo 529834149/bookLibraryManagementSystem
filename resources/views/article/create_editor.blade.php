@@ -3,6 +3,7 @@
 
 
 @section('content')
+<link rel="stylesheet" type="text/css" href="{{ asset('/default/editor/css/simditor.css') }}">
 <div class="container">
     <div class="col-md-10 offset-md-1">
         <div class="card ">
@@ -53,7 +54,29 @@
         </div>
     </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="{{ asset('/default/editor/js/module.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('/default/editor/js/hotkeys.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('/default/editor/js/uploader.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('/default/editor/js/simditor.js') }}"></script>
 
+  <script>
+    $(document).ready(function() {
+      var editor = new Simditor({
+        textarea: $('#editor'),
+        upload: {
+          url: '/upload_image',
+          params: {
+            _token: '{{ csrf_token() }}'
+          },
+          fileKey: 'upload_file',
+          connectionCount: 3,
+          leaveConfirm: '文件上传中，关闭此页面将取消上传。'
+        },
+        pasteImage: true,//是否允许粘贴复制
+      });
+    });
+  </script>
 
 @stop
 @section('footer')
