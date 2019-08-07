@@ -19,5 +19,6 @@ class VerifyCsrfToken extends Middleware
         '*send_editor*',
         '*collection*',
         '*bind_mobile*',
+        '*editor/upload*',
     ];
 }

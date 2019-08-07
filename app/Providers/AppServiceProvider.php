@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use App\Models\BooksCategories;
+use App\Models\Article;
 use Carbon\Carbon;
 class AppServiceProvider extends ServiceProvider
 {
@@ -15,6 +16,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        // Article::observe(ArticleObserver::class);
+
         Carbon::setLocale('zh');
         Schema::defaultStringLength(191);
         $navs = BooksCategories::orderBy('order','ASC')->take(5)->get();

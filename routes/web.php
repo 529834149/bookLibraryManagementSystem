@@ -20,6 +20,7 @@ Route::get('welcome', 'IndexController@welcome');
 
 //文章详情页
 Route::get('/article/{article_id}','ArticleController@show');
+Route::resource('article','ArticleController');
 Route::get('create_post','ArticleController@create');
 
 //发送短信接口
@@ -42,6 +43,9 @@ Route::post('bind_mobile', 'MemberController@bind_mobile_update');
 
 // 微信登录
 Route::post('socials/{social_type}/authorizations', 'AuthorizationsController@bind_mobile_update');
+//图片上传
+Route::post('upload','ArticleController@upload');
+Route::post('editor/upload','ArticleController@editor_upload');
 
 
 

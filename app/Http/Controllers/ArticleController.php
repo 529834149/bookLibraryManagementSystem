@@ -9,8 +9,14 @@ use App\Models\Member;
 use App\Models\Comments;
 use App\Models\BooksCollection;
 use Validator;
+use App\Http\Requests\ArticleRequest;
 class ArticleController extends Controller
 {
+    public function __construct()
+    {
+
+        $this->middleware('auth', ['except' => ['index', 'show']]);
+    }
     public function collection(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -78,12 +84,14 @@ class ArticleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Article $article)
     {
         if(!\Auth::check()){
             return redirect("/login");
         }
-        return view('article.create_editor');
+
+        $get_cate = BooksCategories::get();
+        return view('article.create_editor',compact('get_cate'));
     }
 
     /**
@@ -92,9 +100,12 @@ class ArticleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ArticleRequest  $request,Article $article)
     {
-        //
+        $article->fill($request->all());
+        $article->article_summary = make_excerpt($article->article_body);
+        $article->save();
+        return redirect()->route('article.show', $article->id)->with('success', '帖子创建成功！');
     }
 
     /**
@@ -185,5 +196,66 @@ class ArticleController extends Controller
         \DB::table('books_article')->where('id',intval($request->input('aid')))->increment('post_num');
         return response()->json(['code' => 200,'message'=>'发帖成功','date'=>$Comments]);
 
+    }
+    //图片上传
+    public function upload(Request $request)
+    {
+        if ($_POST) {
+            //上传图片具体操作
+            $file_name = $_FILES['file']['name'];
+            //$file_type = $_FILES["file"]["type"];
+            $file_tmp = $_FILES["file"]["tmp_name"];
+            $file_error = $_FILES["file"]["error"];
+            $file_size = $_FILES["file"]["size"];
+             if ($file_error > 0) { // 出错
+                $message = $file_error;
+            }elseif($file_size > 1048576) { // 文件太大了
+                $message = "上传文件不能大于1MB";
+            }else{
+                $date = date('Ymd');
+                $file_name_arr = explode('.', $file_name);
+                $new_file_name = date('YmdHis') . '.' . $file_name_arr[1];
+                $path = "uploads/".$date."/";
+                $file_path = $path . $new_file_name;
+                if (file_exists($file_path)) {
+                    $message = "此文件已经存在啦";
+                } else {
+                    //TODO 判断当前的目录是否存在，若不存在就新建一个!
+                    if (!is_dir($path)){
+                        @mkdir($path,0777);
+                    }
+                    $upload_result = move_uploaded_file($file_tmp, $file_path); 
+                    //此函数只支持 HTTP POST 上传的文件
+                    if ($upload_result) {
+                        $status = 1;
+                        $message = $file_path;
+                    } else {
+                        $message = "文件上传失败，请稍后再尝试";
+                    }
+                }
+            }   
+        } else {
+            $message = "参数错误";
+        }
+        return showMsg($status, $message);
+    }
+    public function editor_upload(Request $request)
+    {
+        if ($this->request->isPost()){
+            $res['code'] = 0;
+            $res['msg']  = "上传成功";
+            // 获取表单上传文件
+            $file = $this->request->file('file');
+            $info = $file->move(ROOT_PATH . 'public' . DS . 'uploads' . DS . 'images');//保存路径
+                if ($info){
+                    $res['data']['title']= $info->getFilename();
+                    $filepath =$info->getSaveName();
+                    $res['data']['src'] = "/uploads/images/".$filepath;
+                }
+         }else{
+             $res['code'] = 1;
+             $res['msg'] = '上传失败'.$file->getError();
+         }
+         return $res;
     }
 }
