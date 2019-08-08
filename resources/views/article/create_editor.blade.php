@@ -16,7 +16,7 @@
               <h2 class="">
                 <i class="far fa-edit"></i>
                
-                创建文章
+                发表文章
               </h2>
               <hr>
                 <form action="/article" method="POST" accept-charset="UTF-8">
