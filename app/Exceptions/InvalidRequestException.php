@@ -18,7 +18,6 @@ class InvalidRequestException extends Exception
             // json() 方法第二个参数就是 Http 返回码
             return response()->json(['msg' => $this->message], $this->code);
         }
-
         return view('index.error', ['msg' => $this->message]);
     }
 }
