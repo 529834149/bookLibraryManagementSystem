@@ -30,4 +30,8 @@ class IndexController extends Controller
     	// dd($topics);
         return view('index.list',compact('article_list','hot_article'));
     }
+    public function emailVerifyNotice(Request $request)
+    {
+        return view('index.email_verify_notice');
+    }
 }

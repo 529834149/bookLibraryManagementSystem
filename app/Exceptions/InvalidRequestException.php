@@ -19,6 +19,6 @@ class InvalidRequestException extends Exception
             return response()->json(['msg' => $this->message], $this->code);
         }
 
-        return view('pages.error', ['msg' => $this->message]);
+        return view('index.error', ['msg' => $this->message]);
     }
 }

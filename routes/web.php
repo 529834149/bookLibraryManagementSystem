@@ -42,11 +42,23 @@ Route::get('member/center', 'MemberController@member');
 Route::post('bind_mobile', 'MemberController@bind_mobile_update');
 
 // 微信登录
-Route::post('socials/{social_type}/authorizations', 'AuthorizationsController@bind_mobile_update');
+// Route::post('socials/{social_type}/authorizations', 'AuthorizationsController@bind_mobile_update');
 //图片上传
 Route::post('upload','ArticleController@upload');
 Route::post('editor/upload','ArticleController@editor_upload');
 Route::post('upload_image','ArticleController@uploadImage');
+
+// Route::group(['middleware' => 'auth'], function() {
+//     Route::get('/email_verify_notice', 'IndexController@emailVerifyNotice')->name('email_verify_notice');
+// });
+
+Route::group(['middleware' => 'auth'], function() {
+    // 开始
+   	Route::get('/email_verify_notice', 'IndexController@emailVerifyNotice')->name('email_verify_notice');
+    Route::get('/email_verification/verify', 'EmailVerificationController@verify')->name('email_verification.verify');
+ 	Route::get('/email_verification/send', 'EmailVerificationController@send')->name('email_verification.send');//手动发送邮件
+    // 结束
+});
 
 
 

@@ -13,7 +13,5 @@ class Member extends Authenticatable
     public $timestamps = true;
     protected $guarded = [];
     protected $primaryKey = 'member_id';//定义主键
-    protected $fillable = [
-        'username', 'email', 'password','weixin_openid', 'weixin_unionid','gender','realname','mobile','created_at'
-    ];
+   
 }
