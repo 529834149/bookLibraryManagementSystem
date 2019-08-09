@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>QYZQ</title>
+		<title>梅刻错误页面</title>
 		<meta name="viewpoint" content="width=device-width,initial-scale=1">
 		<link rel="stylesheet" href="/default/error_html/css/404.css" />
 		<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
@@ -35,6 +35,6 @@
 			<p>消失了</p>
 		</div>
 	</body>
-	
+
 	<script type="text/javascript" src="/default/error_html/js/404.js" ></script>
 </html>
