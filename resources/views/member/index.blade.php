@@ -25,7 +25,12 @@
 											    </div>
 										  	</div>
 										  	<div class="layui-form-item">
-											    <label class="layui-form-label">邮箱</label>
+										  		
+										  		@if($member['email_verified'])
+											    	<label class="layui-form-label">邮箱(已激活)</label>
+											    @else
+											     	<label class="layui-form-label">邮箱(未激活)</label>
+											    @endif
 											    <div class="layui-input-inline">
 											      	<input type="text" value="{{$member['email']}}" name="email" readonly="readonly"  style="cursor:not-allowed;" required  lay-verify="required" placeholder="请输入邮箱" autocomplete="off" class="layui-input">
 											    </div>
