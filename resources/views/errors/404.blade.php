@@ -1,72 +1,39 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Be right back.</title>
-
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-
-        <style>
-            html, body {
-                height: 100%;
-            }
-
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                color: #B0BEC5;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
-
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
-
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
-
-            .title {
-                font-size: 72px;
-                margin-bottom: 40px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="content">
-                <div class="title"><img src="http://demo.demohuo.top/modals/30/3093/demo/files/notfound.gif"></div>
-                <div class="row"  id="time" >
-                	<!-- <div>页面跳转倒计时:<span class="second"></span></div> -->
-                	<input id="timer" type="button" value="开始跳转10秒" onclick="btnClick();"/>
-                </div>
-            </div>
-        </div>
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    	<script type="text/javascript" >
-	        var time = 10; //时间秒，自己调整!
-	        function CountDown() {
-	                 if (time >= 0) {
-	                     msg = "开始跳转" + time + "秒";
-	                     document.all["timer"].value = msg;
-	                     --time;
-	                 } else{
-	                     clearInterval(timer);
-	                     window.location.href = "/";//在原来的窗体中直接跳转用
-	                 }
-	        }
-	        timer = setInterval("CountDown()", 1000);
-
-	        function btnClick() {
-	            window.location.href = "/";//在原来的窗体中直接跳转用
-	            //window.open("https://www.cnblogs.com/weijuanran/");//打开新的窗口页
-	        }
-	    </script>
-
-    </body>
+	<head>
+		<meta charset="utf-8">
+		<title>QYZQ</title>
+		<meta name="viewpoint" content="width=device-width,initial-scale=1">
+		<link rel="stylesheet" href="/default/error_html/css/404.css" />
+		<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+	</head>
+	<body>
+		<div class="code">
+			<p></p>
+		</div>
+		<div class="road">
+			<div class="shadow">
+				<div class="shelt">
+					<div class="head">
+						<div class="eyes">
+							<div class="lefteye">
+								<div class="eyeball"></div>
+								<div class="eyebrow"></div>
+							</div>
+							<div class="righteye">
+								<div class="eyeball"></div>
+								<div class="eyebrow"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="hat"></div>
+				<div class="bubble">
+					<a href="/">点我，我带你回家喽</a>
+				</div>
+			</div>
+			<p>迷路了吧</p>
+		</div>
+	</body>
+	<script type="text/javascript" src="/default/error_html/js/404.js" ></script>
 </html>
