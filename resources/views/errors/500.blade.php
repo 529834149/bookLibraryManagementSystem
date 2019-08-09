@@ -9,7 +9,7 @@
 	</head>
 	<body>
 		<div class="code">
-			<p>消失了</p>
+			<p>家里着火了</p>
 		</div>
 		<div class="road">
 			<div class="shadow">
@@ -32,9 +32,8 @@
 					<a href="/">点我，我带你回家喽</a>
 				</div>
 			</div>
-			<p>消失了</p>
+			<p>家里着火了</p>
 		</div>
 	</body>
-	
 	<script type="text/javascript" src="/default/error_html/js/404.js" ></script>
 </html>
