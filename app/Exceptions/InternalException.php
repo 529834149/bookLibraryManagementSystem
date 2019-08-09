@@ -20,7 +20,6 @@ class InternalException extends Exception
         if ($request->expectsJson()) {
             return response()->json(['msg' => $this->msgForUser], $this->code);
         }
-
-        return view('pages.error', ['msg' => $this->msgForUser]);
+        return view('index.error', ['msg' => $this->msgForUser]);
     }
 }
