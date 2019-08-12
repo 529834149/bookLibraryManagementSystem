@@ -81,6 +81,9 @@
                                     </p>
                                 </div>
                                 <style>
+                                    img{
+                                        width: 100% !important;
+                                    }
                                     .pp{
                                        
                                         height: 50px;
