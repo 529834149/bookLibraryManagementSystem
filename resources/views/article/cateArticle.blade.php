@@ -35,7 +35,7 @@
                                     </div>
                                 </div>
                             @else
-                            
+
                                 <div class="item">   
                                     <div class="item-info">
                                         <h4><a href="/article/{{$v->id}}">{{$v->article_title}}</a></h4>
@@ -43,8 +43,8 @@
                                             {{-- /<span class="label">{{$v->cate_title}}</span> --}}
                                             <span class="label"><a style="color:#E6F8EC;" href="/category/{{$v->cate_id}}/{{$v->short_name}}">{{$v->cate_title}}</a></span>
                                             <span class="icon message">
-                                              <i class="layui-icon layui-icon-dialogue"></i>
-                                               {{$v->post_num}}条
+                                              <i class="layui-icon layui-icon-read"></i>
+                                                {{$v->click}}阅读量
                                             </span>
                                             <span class="icon time">
                                               <i class="layui-icon layui-icon-log"></i>
