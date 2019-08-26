@@ -35,6 +35,7 @@
                                     </div>
                                 </div>
                             @else
+                            
                                 <div class="item">   
                                     <div class="item-info">
                                         <h4><a href="/article/{{$v->id}}">{{$v->article_title}}</a></h4>
